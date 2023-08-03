@@ -59,10 +59,7 @@
       },
       days() {
         return Math.floor(this.currentTime / (1000 * 60 * 60 * 24));
-      },
-    seconds() {
-        return Math.floor((this.returnTime / 1000) % 60);
-      },
+      }
     },
     filters: {
       formatTime(value) {
@@ -79,6 +76,11 @@
           setTimeout(this.countdown, this.speed);
         } else {
           this.currentTime = null;
+        }
+
+        this.returnTime = Date.parse(this.deadline) - Date.parse(new Date());
+        if (this.returnTime <= 0) {
+          this.returnTime = null;
         }
       }
     }
