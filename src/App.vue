@@ -3,7 +3,7 @@ import Countdown from './components/Countdown.vue'
 </script>
 
 <template>
-  <Countdown class="text-4xl lg:text-7xl w-full h-full" :deadline="'2023-10-03T12:40:00'" :returnDeadline="'2023-10-16T18:25:00'"/>
+  <Countdown class="text-4xl lg:text-7xl w-full h-full" :deadline="'2023-10-03T14:40:00'" :returnDeadline="'2023-10-16T20:25:00'"/>
 </template>
 
 <style scoped>
