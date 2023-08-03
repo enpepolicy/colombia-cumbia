@@ -1,6 +1,7 @@
 <template>
     <div>
-      <div class="text-center" v-if="currentTime">
+        <div class="pb-10">🌺 🌸 🌺</div>
+      <div class="text-center py-8" v-if="currentTime">
         <span v-if="days">
           Days: {{ days }}<br/>
         </span>
@@ -14,6 +15,7 @@
       <div class="text-center" v-if="!currentTime">
         Time's Up!
       </div>
+      <div class="pt-10">😎 💃🏾 🌞</div>
     </div>
   </template>
   
