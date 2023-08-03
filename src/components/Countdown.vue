@@ -12,8 +12,11 @@
         Seconds: {{ seconds | formatTime }} <br/>
 
        </div>
-      <div class="text-center" v-if="!currentTime">
-        Time's Up!
+      <div class="text-center" v-if="!currentTime && returnTime > 0">
+        ❤️ On est en Colombie❤️
+      </div>
+      <div class="text-center" v-if="!currentTime && returnTime <= 0">
+        💔 On rentre! 💔
       </div>
       <div class="pt-10">😎 💃🏾 🌞</div>
     </div>
@@ -26,6 +29,10 @@
         type: String,
         required: true,
       },
+    returnDeadline: {
+        type: String,
+        required: true,
+      },
       speed: {
         type: Number,
         default: 1000,
@@ -33,7 +40,8 @@
     },
     data() {
       return {
-        currentTime: Date.parse(this.deadline) - Date.parse(new Date())
+        currentTime: Date.parse(this.deadline) - Date.parse(new Date()),
+        returnTime: Date.parse(this.returnDeadline) - Date.parse(new Date()),
       };
     },
     mounted() {
@@ -51,7 +59,10 @@
       },
       days() {
         return Math.floor(this.currentTime / (1000 * 60 * 60 * 24));
-      }
+      },
+    seconds() {
+        return Math.floor((this.returnTime / 1000) % 60);
+      },
     },
     filters: {
       formatTime(value) {
